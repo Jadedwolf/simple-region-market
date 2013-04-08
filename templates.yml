@@ -1,0 +1,81 @@
+templates_version: 1.0.1
+sell:
+  type: sell
+  removesigns: false
+  buyer: owner
+  price.min: 0
+  price.max: -1
+  input.id: '[SELL]'
+  input.2: '[[region]]'
+  input.3: '[[price]]'
+  input.4: '[[account]]'
+  output.id: 'FOR SALE'
+  output.1: '[[id_out]]'
+  output.2: '[[region]]'
+  output.3: '[[price]]'
+  output.4: '[[x]] x [[y]] x [[z]]'
+  taken.id: 'SOLD'
+  taken.1: '[[id_taken]]'
+  taken.2: ''
+  taken.3: '[[player]]'
+  taken.4: ''
+let:
+  type: let
+  price.min: 0
+  price.max: -1
+  renttime.min: 60000
+  renttime.max: -1
+  input.id: '[LET]'
+  input.2: '[[region]]'
+  input.3: '[[price:time]]'
+  input.4: '[[account]]'
+  output.id: 'FOR LET'
+  output.1: '[[id_out]]'
+  output.2: '[[region]]'
+  output.3: '[[price]]'
+  output.4: '[[time]]'
+  taken.id: 'OCCUPIED'
+  taken.1: '[[id_taken]]'
+  taken.2: '[[timeleft]]'
+  taken.3: ''
+  taken.4: '[[player]]'
+rent:
+  type: rent
+  price.min: 0
+  price.max: -1
+  renttime.min: 60000
+  renttime.max: -1
+  input.id: '[RENT]'
+  input.2: '[[region]]'
+  input.3: '[[price:time]]'
+  input.4: '[[account]]'
+  output.id: 'FOR RENT'
+  output.1: '[[id_out]]'
+  output.2: '[[region]]'
+  output.3: '[[price]]'
+  output.4: '[[time]]'
+  taken.id: 'OCCUPIED'
+  taken.1: '[[id_taken]]'
+  taken.2: '[[timeleft]]'
+  taken.3: ''
+  taken.4: '[[player]]'
+bid:
+  type: bid
+  price.min: 0
+  price.max: -1
+  bidtime.min: 60000
+  bidtime.max: -1
+  input.id: '[BID]'
+  input.2: '[[region]]'
+  input.3: '[[price:time]]'
+  input.4: '[[account]]'
+  output.id: 'BID'
+  output.1: '[[id_out]]'
+  output.2: '[[region]]'
+  output.3: '[[timeleft]]'
+  output.4: '[[player]] : [[highestpay]]'
+  taken.id: 'BIDDEN'
+  taken.1: '[[id_taken]]'
+  taken.2: '[[region]]'
+  taken.3: '[[player]]'
+  taken.4: '[[highestpay]]'

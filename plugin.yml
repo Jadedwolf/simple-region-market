@@ -1,0 +1,66 @@
+name: SimpleRegionMarket
+version: 3.3.5
+authors: [Ienze, theZorro266]
+main: me.ienze.SimpleRegionMarket.SimpleRegionMarket
+load: POSTWORLD
+depend: ['WorldGuard']
+softdepend: ['Vault', 'dynmap', 'LWC']
+
+commands:
+  regionmarket:
+    description: Using Simple Region Market
+    aliases: [rm, srm, simpleregionmarket]
+    usage: Incorrect ussage, /srm help
+
+permissions:
+    simpleregionmarket.signs.*:
+        default: true
+        children:
+            simpleregionmarket.signs.create.*: true
+            simpleregionmarket.signs.use.*: true
+    simpleregionmarket.signs.create.*:
+        default: true
+        children:
+            simpleregionmarket.signs.create.rent: true
+            simpleregionmarket.signs.create.sell: true
+            simpleregionmarket.signs.create.let: true
+            simpleregionmarket.signs.create.bid: true
+    simpleregionmarket.signs.use.*:
+        default: true
+        children:
+            simpleregionmarket.signs.use.rent: true
+            simpleregionmarket.signs.use.sell: true
+            simpleregionmarket.signs.use.let: true
+            simpleregionmarket.signs.use.bid: true
+    simpleregionmarket.signs.create.rent:
+        default: true
+    simpleregionmarket.signs.create.sell:
+        default: true
+    simpleregionmarket.signs.create.let:
+        default: true
+    simpleregionmarket.signs.create.bid:
+        default: true
+    simpleregionmarket.signs.use.rent:
+        default: true
+    simpleregionmarket.signs.use.sell:
+        default: true
+    simpleregionmarket.signs.use.let:
+        default: true
+    simpleregionmarket.signs.use.bid:
+        default: true
+    simpleregionmarket.admin:
+        default: op
+    simpleregionmarket.list:
+        default: true
+    simpleregionmarket.about:
+        default: true
+    simpleregionmarket.limits:
+        default: true
+    simpleregionmarket.addmember:
+        default: true
+    simpleregionmarket.removemember:
+        default: true
+    simpleregionmarket.tpfree:
+        default: true
+    simpleregionmarket.tpowned:
+        default: true

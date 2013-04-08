@@ -1,0 +1,92 @@
+version: 3.2.1
+MAIN:
+  WARN:
+    NO_ECO_API: "Keine Registrierung von Vault gefunden wurde - Umschalten auf Economy-freie Version"
+    VAULT_NO_ECO: "Du verfuegst nicht ueber eine Economy-System das mit Vault funktioniert"
+    REGISTER_NO_ECO: "Du verfuegst nicht ueber ein registriertes Economy-System"
+  ERROR:
+    NO_WORLDGUARD: "WorldGuard wurde nicht gefunden"
+CHECK:
+  WARN:
+    NO_WORLD: "World $0 wurde nicht geladen!"
+    NO_REGION: "WorldGuard Region $0 konnte nicht gefunden werden!"
+TEMPLATES:
+  NORM:
+    NO_TEMPLATES: "Keine Templates gefunden - Erstellen von Standard-Templates"
+  WARN:
+    TYPE_NOT_KOWN: "Unbekannter Template-Typ $0"
+  ERROR:
+    NO_STANDARD_TEMPLATES: "Standard-Templates konnten nicht erstellt werden" 
+COMMON:
+  CONSOLE_NOWORLD: "Keine Welt in der Konsole angegeben"
+  NO_REGION: "Region $0 wurde nicht in Welt $1 gefunden."
+  NO_TELEPORT_REGION_TYPE: "$0 Teleport wird nicht unterstuetzt."
+CMD:
+  RELOAD:
+    SUCCESS: "Configs neu geladen."
+  LIST:
+    NO_ARG: "Command: /srm list <seite>"
+    HEADER: "--- Region (seite $0): ---"
+  ADD_MEMBER:
+    NO_ARG: 'Command: /srm addMember <player> <region> <world> - Fuege einen Member zu deiner Region hinzu.'
+    SUCCESS: Member hinzugefuegt.
+    SUCCESS_MEMBER: 'Du wurdest zu der Region $1 von $0 als Member hinzugefuegt.'
+  REM_MEMBER:
+    NO_ARG: 'Command: /srm removeMember <player> <region> <world> - Entferne einen Member von deiner Region.'
+    SUCCESS: Member entfernt.
+    SUCCESS_MEMBER: 'Du wurdest von der Region $1 von $0 als Member entfert.'
+  UNTAKE:
+    NO_ARG: "Command: /srm untake <region> [Welt] - Entfernt die Eigentuemer und Mitglieder aus der Region"
+    SUCCESS: "Region $0 in Welt $1 wurde bereinigt."
+  REMOVE:
+    NO_ARG: "Command: /srm remove <region> [Welt] - Entfernt die Region aus dem SRM-System"
+    SUCCESS: "Region $0 in Welt $1 wurde entfernt."
+  STATISTICS:
+    HEADER: "--- Statistiken: ---"
+    NOT_ENABLED: "Statistiken sind deaktiviert."
+  MONEYS:
+    HEADER: "--- Moneys (let): ---"
+  TP:
+    NO_FREE_REGION: "Es ist keine freie Region mehr verfugbar. Bitte kontaktiere deine Server-Admin"
+    NOT_OWN: "Du bist nicht der Bestizer von der Region $0"
+PLAYER:
+  ERROR:
+    ECO_PROBLEM: "Es gab ein Problem mit der Ueberweisung des Geldes."
+    NO_MONEY: "Du hast nicht genug Geld."
+    NO_PRICE: "Preis nicht gefunden."
+    NO_RENTTIME: "Rent-Zeit nicht gefunden."
+    NO_PLAYER: "Player $0 nicht gefunden."
+    NO_REGION: "Keine Region mit diesem Namen gefunden."
+    NOT_OWNER: "Dir gehoert diese Region nicht."
+    PRICE_LIMIT: "Der Preis ist nicht zwischen $0 und $1."
+    RENTTIME_LIMIT: "Die Rent-Zeit ist nicht zwischen $0 und $1."
+    RERENT_TOO_LONG: "Du kannst deine Zeit nicht mehr verlaengern."
+    NEED_ONE_SIGN: "Diese Vorlage muss mindestens ein Zeichen enthalten."
+    OTHER_TOKEN: "Diese Region ist schon in Benutzung."
+    FAST_CLICKS: "Du klickst zu schnell auf dieses Sign."
+  NO_PERMISSIONS: "Du hast keine Berechtigung das zu tun."
+  REGION:
+    YOURS: "Das ist deine Region."
+    BOUGHT: "Du hast die Region $0 erfolgreich gekauft."
+    RENT: "Du hast die Region $0 erfolgreich vermietet."
+    JUST_TAKEN_BY: "Die Region $0 gehoert nun $1."
+    TAKEN_BY: "Diese Region gehoert $0."
+    DELETED: "Region erfolgreich geloescht."
+    DELETED_SIGN: "Region erfolgreich geloescht."
+    ADDED_SIGN: "Du hast erfolgreich einen $0-Sign in dieser Region aufgenommen."
+    EXPIRED: "Deine Region $0 abgelaufen."
+    WARN_EXPIRE: "Deine Region $0 wird in $1 ablaufen."
+    AUTO_EXPANDED: "Deine Region $0 wurde automatisch verlngert."
+    ADDED_RENTTIME: "Du hast erfolgreich deine Rent-Zeit verlaengert."
+    BID_END_NO_WINER: "Die Auktion wurde ohne einen Gewinner beendet."
+    BID_END: "Ende der Auktion ($0). $1 hat gewonnen."
+    BID_ADD: "Du wurdest zu der Auktion der Region $0 hinzugefgt ($1)"
+  LIMITS:
+    GLOBAL: "Du hast die Region Grenze erreicht."
+    TOKEN: "Du hast die Region Grenze erreicht."
+    GROUP: "Du hast die Region Grenze erreicht."
+    GLOBAL_WORLD: "Du hast das Limit der Region in dieser Welt erreicht."
+    TOKEN_WORLD: "Du hast die Region Grenze in dieser Welt erreicht."
+    GROUP_WORLD: "Du hast das Limit der Region in dieser Welt erreicht."
+    GROUP_TOKEN: "Du hast das Limit fuer deine Permission-Gruppe erreicht."
+    ONLY_ONE_BID: "Du kannst nur in ein Gebot in dieser Zeitspanne abgeben."
