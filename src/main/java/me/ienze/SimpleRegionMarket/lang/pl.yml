@@ -1,0 +1,88 @@
+version: 3.2.1
+MAIN:
+  WARN:
+    NO_ECO_API: Nie znaleziono pluginu do obslugi ekonomii (Register lub Vault) - Przejscie na system bez ekonomii
+    VAULT_NO_ECO: Nie znaleziono zadnego pluginu ekonomicznego (Zainstalowany Vault).
+    REGISTER_NO_ECO: Nie znaleziono zadnego pluginu ekonomicznego (Zainstalowany Register).
+  ERROR:
+    NO_WORLDGUARD: Nie znaleziono pluginu WorldGuard
+CHECK:
+  WARN:
+    NO_WORLD: Swiat $0 nie zostal zaladowany!
+    NO_REGION: Nie znaleziono regionu $0!
+TEMPLATES:
+  NORM:
+    NO_TEMPLATES: Nie znaleziono szablonu - Tworzenie standardowego
+  WARN:
+    TYPE_NOT_KOWN: Nieznany typ szablonu $0
+  ERROR:
+    NO_STANDARD_TEMPLATES: Nie mozna utworzyc standardowego szablonu
+CMD:
+  RELOAD:
+    SUCCESS: Konfiguracja przeladowane.
+  LIST:
+    NO_ARG: 'Uzyj: /srm untake <region> [swiat] - Usuwa wlascicieli oraz uzytkownikow z regionu'
+    HEADER: ' --- Region (strona $0): --- '
+  ADD_MEMBER:
+    NO_ARG: 'Usage: /srm addMember <player> <region> <world> - Add member to your region.'
+    SUCCESS: Member added.
+    SUCCESS_MEMBER: 'You have been added by $0 to his region $1'
+  REM_MEMBER:
+    NO_ARG: 'Usage: /srm removeMember <player> <region> <world> - Remove member from your region.'
+    SUCCESS: Member removed.
+    SUCCESS_MEMBER: 'You have been removed by $0 of his region $1'
+  UNTAKE:
+    NO_ARG: 'Uzyj: /srm untake <region> [swiat] - Usuwa wlascicieli oraz uzytkownikow z regionu'
+    SUCCESS: Z regionu $0 w swiecie $1 odebrano prawa wlasciciela.
+  REMOVE:
+    NO_ARG: 'Uzyj: /srm remove <region> [swiat] - Usuwa region z systemu'
+    SUCCESS: Region $0 in world $1 has been removed.
+  STATISTICS:
+    HEADER: ' --- Statistics: --- '
+    NOT_ENABLED: Statystyki nie sa wlaczone.
+  MONEYS:
+    HEADER: ' --- Moneys (let): --- ' 
+  TP:
+    NO_FREE_REGION: Can't find any free region.
+    NOT_OWN: You don't own region with name $0.
+PLAYER:
+  ERROR:
+    ECO_PROBLEM: Wystapil problem z transferem gotowki.
+    NO_MONEY: Masz za malo gotowki.
+    NO_PRICE: Nie wprowadziono ceny.
+    NO_RENTTIME: Nie wprowadziono czasu wynajmu.
+    NO_PLAYER: Player $0 not found.
+    NO_REGION: Nie ma regionu o tej nazwie.
+    NOT_OWNER: Nie jestes wlascicielem tego regionu.
+    PRICE_LIMIT: Cena musi byc pomiedzy $0 a $1.
+    RENTTIME_LIMIT: Czas wynajmu musi byc pomiedzy $0 a $1.
+    RERENT_TOO_LONG: Nie mozna przedluzyc czasu wynajmu.
+    NEED_ONE_SIGN: W tym szablonie musi sie znajdowac przynajmniej jeden typ oznaczenia regionu.
+    OTHER_TOKEN: Znak dla tego regionu juz istnieje.
+    FAST_CLICKS: Mozesz kliknac na tabliczku zbyt szybko!
+  NO_PERMISSIONS: Nie posiadasz uprawnien.
+  REGION:
+    YOURS: Ten region jest Twoj.
+    BOUGHT: Kupiles region $0.
+    RENT: Wynajales region $0.
+    JUST_TAKEN_BY: Region $0 zostal kupiony przez $1.
+    TAKEN_BY: Region nalezy do $0.
+    DELETED: Usunieto tabliczke dla regionu.
+    DELETED_SIGN: Usunieto region.
+    ADDED_SIGN: Poprawnie utworzono tabliczke dla regionu.
+    EXPIRED: Uplynal czas wynajmu regionu $0.
+    WARN_EXPIRE: Twój rejon $0 bêdzie epire w $1 minut.
+    AUTO_EXPANDED: Czas wynajmu $0 zostal przedluzony.
+    ADDED_RENTTIME: Przedluzyles czas wynajmu.
+    BID_END_NO_WINER: Koniec oferty. No kto wygral.
+    BID_END: Koniec oferty ($0), zwyciezca jest $1.
+    BID_ADD: Dodales $0 do oferty ($1)
+  LIMITS:
+    GLOBAL: Osiagnales globalny limit regionow.
+    TOKEN: Osiagnales limit znakow dla regionow.
+    GROUP: Osiagnales grupowy limit regionow.
+    GLOBAL_WORLD: Osiagnales globalny limit regionow w tym swiecie.
+    TOKEN_WORLD: Osiagnales limit znakow dla regionow w tym swiecie.
+    GROUP_WORLD: Osiagnales grupowy limit regionow w tym swiecie.
+    GROUP_TOKEN: Osiagnales grupowy limit regionow w tym znakow.
+    ONLY_ONE_BID: Mozna byc tylko w jednej ofercie na raz.

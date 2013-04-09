@@ -1,0 +1,19 @@
+global:
+  global: -1
+worlds:
+  world:
+    signs:
+      sell: -1
+      rent: -1
+      let: -1
+      bid: -1
+  world_nether: -1
+  world_the_end: -1
+groups:
+  default:
+    worlds:
+      world: -1
+      world_nether: -1
+      world_the_end: -1
+# Write like on Signs: 1m = 1 Minute, 1d = 1 Day...
+autoClearTime: 0

@@ -1,0 +1,92 @@
+version: 3.2.1
+MAIN:
+  WARN:
+    NO_ECO_API: Neither Register nor Vault was found - Switching to economy-free version
+    VAULT_NO_ECO: You do not have an economy system besides Vault running
+    REGISTER_NO_ECO: You do not have an economy system besides Register running
+  ERROR:
+    NO_WORLDGUARD: WorldGuard was not found
+CHECK:
+  WARN:
+    NO_WORLD: World $0 is not loaded!
+    NO_REGION: WorldGuard region $0 was not found!
+TEMPLATES:
+  NORM:
+    NO_TEMPLATES: No templates found - Creating standard templates
+  WARN:
+    TYPE_NOT_KOWN: I don't know the template type $0
+  ERROR:
+    NO_STANDARD_TEMPLATES: Could not create standard templates
+COMMON:
+  CONSOLE_NOWORLD: You have to give the world in the console
+  NO_REGION: Region $0 was not found in world $1.
+  NO_TELEPORT_REGION_TYPE: $0 isn't supported teleport to region type.
+CMD:
+  RELOAD:
+    SUCCESS: Configuration reloaded.
+  LIST:
+    NO_ARG: 'Usage: /srm list [page] [token]- Show list of regions.'
+    HEADER: ' --- Regions (page $0): --- '
+  ADD_MEMBER:
+    NO_ARG: 'Usage: /srm addMember <player> <region> <world> - Add member to your region.'
+    SUCCESS: Member added.
+    SUCCESS_MEMBER: 'You have been added by $0 to his region $1'
+  REM_MEMBER:
+    NO_ARG: 'Usage: /srm removeMember <player> <region> <world> - Remove member from your region.'
+    SUCCESS: Member removed.
+    SUCCESS_MEMBER: 'You have been removed by $0 of his region $1'
+  UNTAKE:
+    NO_ARG: 'Usage: /srm clear <region> [world]- Removes the owners and members from the region'
+    SUCCESS: Region $0 in world $1 has been untaken.
+  REMOVE:
+    NO_ARG: 'Usage: /srm remove <region> [world] - Removes the region out of the system'
+    SUCCESS: Region $0 in world $1 has been removed.
+  STATISTICS:
+    HEADER: ' --- Statistics: --- '
+    NOT_ENABLED: Statistics are not enabled.
+  MONEYS:
+    HEADER: ' --- Moneys (let): --- ' 
+  TP:
+    NO_FREE_REGION: Can't find any free region.
+    NOT_OWN: You don't own region with name $0.
+PLAYER:
+  ERROR:
+    ECO_PROBLEM: There was a problem with transfering the money.
+    NO_MONEY: You do not have enough money.
+    NO_PRICE: Price not found.
+    NO_RENTTIME: Rent time not found.
+    NO_PLAYER: Player $0 not found.
+    NO_REGION: There is no region with this name.
+    NOT_OWNER: You do not own this region.
+    PRICE_LIMIT: The price is not between $0 and $1.
+    RENTTIME_LIMIT: The rent time is not between $0 and $1.
+    RERENT_TOO_LONG: You cannot extend your room.
+    NEED_ONE_SIGN: This template needs at least one sign when it's taken.
+    OTHER_TOKEN: You can't create a sign from this token, when there are signs from other tokens.
+    FAST_CLICKS: You clicking on sign too fast!
+  NO_PERMISSIONS: You do not have permission to do this.
+  REGION:
+    YOURS: This is your region.
+    BOUGHT: You successfully bought the region $0.
+    RENT: You successfully rented the region $0.
+    JUST_TAKEN_BY: The region $0 was just taken by $1.
+    TAKEN_BY: This region is owned by $0.
+    DELETED: Successfully deleted the region.
+    DELETED_SIGN: Deleted that sign from the region.
+    ADDED_SIGN:  You have sucessfully added a $0-Sign to this region.
+    EXPIRED: Your region $0 expired.
+    WARN_EXPIRE: Your region $0 will epire in $1 minutes.
+    AUTO_EXPANDED: Your region $0 got automatically expanded.
+    ADDED_RENTTIME: You successfully extended your time.
+    BID_END_NO_WINER: End of bid. No anybody won.
+    BID_END: End of bid ($0), winner is $1.
+    BID_ADD: You added $0 to the bid ($1)
+  LIMITS:
+    GLOBAL: You have reached the global region limit.
+    GROUP: You have reached the group region limit.
+    TOKEN: You have reached the token region limit.
+    GLOBAL_WORLD: You have reached the global region limit in this world.
+    TOKEN_WORLD: You have reached the token region limit in this world.
+    GROUP_WORLD: You have reached the group region limit in this world.
+    GROUP_TOKEN: You have reached the group region limit in this token.
+    ONLY_ONE_BID: You can be only in one bid at a time.

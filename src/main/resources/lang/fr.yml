@@ -1,0 +1,92 @@
+version: 3.2.1
+MAIN:
+  WARN:
+    NO_ECO_API: "Register et/ou Vault introuvable - SRM passe sur un système non-économique"
+    VAULT_NO_ECO: "Vault est détecté mais aucun système économique n'est détecté"
+    REGISTER_NO_ECO: "Register est détecté mais aucun système économique n'est détecté"
+  ERROR:
+    NO_WORLDGUARD: "WorldGuard introuvable"
+CHECK:
+  WARN:
+    NO_WORLD: "Le monde $0 n'est pas chargé"
+    NO_REGION: "Région region $0 introuvable!"
+TEMPLATES:
+  NORM:
+    NO_TEMPLATES: "Template introuvable - Création de templates standart"
+  WARN:
+    TYPE_NOT_KOWN: "Le template $0 n'est pas reconnu pas SRM"
+  ERROR:
+    NO_STANDARD_TEMPLATES: "Impossible de créer un templates standart"
+COMMON:
+  CONSOLE_NOWORLD: "Vous devez entrer le nom du monde dans la console."
+  NO_REGION: "La Région $0 est introuvable dans le monde $1."
+  NO_TELEPORT_REGION_TYPE: "$0 ne supporte pas la téléportation vers une région."
+CMD:
+  RELOAD:
+    SUCCESS: "Configuration rechargée.(Traduction pas MadlaineCraft)"
+  LIST:
+    NO_ARG: "Utilisation: /srm list [page] [Type_de_région] - Afficher la liste des région SRM."
+    HEADER: " --- Régions / page(s) $0: --- " 
+  ADD_MEMBER:
+    NO_ARG: 'Usage: /srm addMember <player> <region> <world> - Add member to your region.'
+    SUCCESS: Member added.
+    SUCCESS_MEMBER: 'You have been added by $0 to his region $1'
+  REM_MEMBER:
+    NO_ARG: 'Usage: /srm removeMember <player> <region> <world> - Remove member from your region.'
+    SUCCESS: Member removed.
+    SUCCESS_MEMBER: 'You have been removed by $0 of his region $1'
+  UNTAKE:
+    NO_ARG: "Utilisation: /srm clear <région> [monde]- Supprime les membres et propriétaires de la région."
+    SUCCESS: "La Région $0 dans le monde $1 est exempte de propriétaire/membre."
+  REMOVE:
+    NO_ARG: "Utilisation: /srm remove <région> [monde] - Supprime la région de SRM"
+    SUCCESS: "La région $0 dans le monde $1 est supprimé."
+  STATISTICS:
+    HEADER: " --- Statistiques: --- "
+    NOT_ENABLED: "Les statistiques ne sont pas activé."
+  MONEYS:
+    HEADER: " --- Argent (Location): --- "
+  TP:
+    NO_FREE_REGION: Can't find any free region.
+    NOT_OWN: You don't own region with name $0.
+PLAYER:
+  ERROR:
+    ECO_PROBLEM: "Il y a un problème de transfert de monnaie."
+    NO_MONEY: "Vos fonds sont insufisant."
+    NO_PRICE: "Prix introuvable."
+    NO_RENTTIME: "Temps de location introuvable."
+    NO_PLAYER: "Joueur $0 introuvable."
+    NO_REGION: "Il n'y a pas de région avec ce nom."
+    NOT_OWNER: "Vosu n'êtes pas le propriétaires de cette région."
+    PRICE_LIMIT: "Le prix n'est pas entre $0 et $1."
+    RENTTIME_LIMIT: "Le temps de location n'est pas entre $0 et $1."
+    RERENT_TOO_LONG: "Vous ne pouvez pas prolonger le temps de location."
+    NEED_ONE_SIGN: "Les configurations exige d'avoir au moins un panneau lorsque la région est loué/vendu."
+    OTHER_TOKEN: "Vous ne pouvea pas créer un panneaux avec ce type de vente car il existe un autre panneau avec un type de vente différente."
+    FAST_CLICKS: "Vous êtes trop rapide!"
+  NO_PERMISSIONS: "Vous n'avez pas la permission."
+  REGION:
+    YOURS: "C'est votre région..."
+    BOUGHT: "Vous avez acheté la région $0 avec succès."
+    RENT: "Vous avez loué la région $0 avec succès."
+    JUST_TAKEN_BY: "La région $0 vient d'être prise par $1."
+    TAKEN_BY: "Le propriétaire de la région est $0."
+    DELETED: "Région supprimé avec succés."
+    DELETED_SIGN: "Panneau de la région détruit."
+    ADDED_SIGN:  "Vous avez ajouté avec succés un $0-Panneau à cette région."
+    EXPIRED: "Votre temps de location de la région $0 viens d'exprirer."
+    WARN_EXPIRE: "Votre région $0 va expirer dans $1 minute(s)"
+    AUTO_EXPANDED: "Votre temps de location pour la région $0 viens d'être automatiquement prolongé."
+    ADDED_RENTTIME: "Vous avez prolongé votre temps de location avec succés."
+    BID_END_NO_WINER: "Fin des enchères, personne ne gagne."
+    BID_END: "Fin des enchères ($0), le gagnant est $1."
+    BID_ADD: "Vous enchèrissez de $0 (Prix total: $1)"
+  LIMITS:
+    GLOBAL: "Vous avez atteint la limite globale de possession de région."
+    GROUP: "Vous avez atteint la limite de possession de région de votre groupe."
+    TOKEN: "Vous avez atteint la limite de possession de type de région."
+    GLOBAL_WORLD: "Vous avez atteint la limite globale de possession de région dans ce monde."
+    TOKEN_WORLD: "Vous avez atteint la limite de possession de type de région dans ce monde."
+    GROUP_WORLD: "Vous avez atteint la limite de possession de région dans ce monde pour votre groupe."
+    GROUP_TOKEN: "Vous avez atteint la limite de possession de type de région pour votre groupe."
+    ONLY_ONE_BID: "Une seul enchère à la fois..."

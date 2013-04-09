@@ -1,21 +1,19 @@
 package me.ienze.SimpleRegionMarket.handlers;
 
+import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.Level;
-
+import me.ienze.SimpleRegionMarket.SimpleRegionMarket;
+import me.ienze.SimpleRegionMarket.TokenManager;
+import me.ienze.SimpleRegionMarket.Utils;
+import me.ienze.SimpleRegionMarket.signs.TemplateMain;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
-
-import com.sk89q.worldguard.protection.regions.ProtectedRegion;
-import me.ienze.SimpleRegionMarket.SimpleRegionMarket;
-import me.ienze.SimpleRegionMarket.TokenManager;
-import me.ienze.SimpleRegionMarket.Utils;
-import me.ienze.SimpleRegionMarket.signs.TemplateMain;
 
 public class LimitHandler {
 	private final static String LIMITS_NAME = "limits.yml";
@@ -28,17 +26,17 @@ public class LimitHandler {
 		if(!f.exists()) {
 			plugin.saveResource("limits.yml", false);
 		}
-		config = YamlConfiguration.loadConfiguration(f);	
-		
+		config = YamlConfiguration.loadConfiguration(f);
+
 		StatisticsCountMode = SimpleRegionMarket.configurationHandler.getBoolean("Statistics_Limit_Mode");
 	}
-	
+
 	//(auto) reloading
 	public void reloadLimits() {
 		SimpleRegionMarket.statisticManager.lock();
 		SimpleRegionMarket.statisticManager.save();
 	}
-	
+
 	public boolean autoClear() {
 		String autoClearTime = config.getString("autoClearTime");
 		Long clearTime;
@@ -52,8 +50,8 @@ public class LimitHandler {
 			} else {
 				clearTime = Long.valueOf(autoClearTime);
 			}
-		} 
-		
+		}
+
 		if(clearTime > 0) {
 			Long lct;
 			if(config.get("lastClearTime") == null) {
@@ -67,10 +65,10 @@ public class LimitHandler {
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	public boolean checkPerms(Player player, String[] groups, TemplateMain token, String message) {
 		for(String key : config.getKeys(true)) {
 			if(key.equals("lastClearTime") || key.equals("autoClearTime")) {
@@ -88,7 +86,7 @@ public class LimitHandler {
 		}
 		return true;
 	}
-	
+
 	public String[] checkPermsForList(Player player, String[] groups, TemplateMain token) {
 		ArrayList<String> list = new ArrayList<String>();
 		for(String key : config.getKeys(true)) {
@@ -111,7 +109,7 @@ public class LimitHandler {
 		list.toArray(l);
 		return l;
 	}
-	
+
 	public String checkParts(String fullKey, String[] keyParts, Player player, String[] groups, TemplateMain token) {
 		if(keyParts.length > 0) {
 			if(keyParts[0].equals("global")) {
@@ -196,7 +194,7 @@ public class LimitHandler {
 
 	/**
 	 * Returns a count from template, parentRegion for regions, where player is owner
-	 * 
+	 *
 	 * @param player
 	 * @param token
 	 *            template, where to count regions from
@@ -220,7 +218,7 @@ public class LimitHandler {
 
 	/**
 	 * Returns a global count for regions with the parent region parentRegion, where player is owner
-	 * 
+	 *
 	 * @param player
 	 * @param parentRegion
 	 * @return the count of all regions with the parent region owned by the player
@@ -235,7 +233,7 @@ public class LimitHandler {
 
 	/**
 	 * Returns a count from template, world for regions, where player is owner
-	 * 
+	 *
 	 * @param player
 	 * @param token
 	 *            template, where to count regions from
@@ -243,12 +241,12 @@ public class LimitHandler {
 	 * @return the count of all regions from the template in the world owned by the player
 	 */
 	public int countPlayerWorldRegions(Player player, TemplateMain token, String world) {
-		int count = 0;		
+		int count = 0;
 		if(StatisticsCountMode) {
 			count = SimpleRegionMarket.statisticManager.getEntry(world+".users."+player.getName()+".buyedtokens."+token.id);
 		} else {
 			if(token.entries.containsKey(world)) {
-				for (final String region : token.entries.get(world).keySet()) {					
+				for (final String region : token.entries.get(world).keySet()) {
 					final ProtectedRegion protectedRegion = SimpleRegionMarket.wgManager.getProtectedRegion(Bukkit.getWorld(world), region);
 					if (protectedRegion != null) {
 						if (token.isRegionOwner(player, world, region)) {
@@ -263,7 +261,7 @@ public class LimitHandler {
 
 	/**
 	 * Returns a global count for regions in world, where player is owner
-	 * 
+	 *
 	 * @param player
 	 * @param world
 	 * @return the count of all regions in the world owned by the player
@@ -278,7 +276,7 @@ public class LimitHandler {
 
 	/**
 	 * Returns a count per template for regions, where player is owner
-	 * 
+	 *
 	 * @param player
 	 * @param token
 	 *            template, where to count regions from
@@ -307,7 +305,7 @@ public class LimitHandler {
 
 	/**
 	 * Returns a global count for regions, where player is owner
-	 * 
+	 *
 	 * @param player
 	 * @return the count of all regions owned by the player
 	 */
@@ -317,5 +315,5 @@ public class LimitHandler {
 			count += countPlayerTokenRegions(player, token);
 		}
 		return count;
-	}	
+	}
 }

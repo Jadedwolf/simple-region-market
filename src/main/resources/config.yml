@@ -1,0 +1,72 @@
+# Version 3.3.5
+# by technisat and inik0
+
+Enable_Economy: true
+Logging: true
+
+Statistics_Enabled: true
+
+# Possible languages: en, ge, fr, pl
+Language: en
+
+Statistics_Limit_Mode: false
+
+#use statistics (rented, selled region conunt; per player info...)
+Statistics_Enabled: true
+
+# Remove region from market list when bought...
+Auto_Removing_Regions: sell,bid
+
+# Can players extend rent region
+Can_Extend: true
+# Here can be value in two formats, time (5d - 5 days) or amount (4 - 4 times)
+Max_Rent_Extend: -1
+
+Show_Auto_Expand_Message: true
+
+# Show to player warning message when his region will expire, in minutes (0 - disabled)
+Show_Warning_Rent_Expire: 0
+
+# Remove LWC protections when region expire, example: rent,let
+Remove_LWC_On_Expire: none
+
+# Rollback bolocks when region expire (and save when region went buy), example: rent,let
+Rollback_On_Expire: none
+
+# If player line is empty... true: use sign creator name, false: use Default_Economy_Account
+Player_Line_Empty: true
+
+# Economy account to send moneys if line 'player' will be empty
+Default_Economy_Account: '<admin>'
+
+# Teleport: Player will teleport to his buyed Region
+Teleport_To_Region: true
+# Where do you want teleport, possible: minCorner, centerHighest, centerByLight
+Teleport_Where: centerHighest
+
+# True: find region with highest priority, False: use first region
+Hight_Priority_Region: true
+# Try to find region with that name in other worlds.
+Use_Other_World_Regions: false
+
+# Protect plugin from fast clicking (in miliseconds)
+Clicking_Limit: 1200
+
+Let_Statistics_Template: '&playerFrom& >> &playerTo&: &price&/&time&'
+Regions_List_Template: '&region& (&tokenType&): &price&&time&'
+Entries_Per_List_Page: 10
+
+# Main colors of generated signs (color per line can be set in templates.yml)
+Output_Color: '&f'
+Taken_Color: '&f'
+
+# Show buyable regions on dynmap
+Enable_dynmap: true
+Markerset_Name: Simple region market
+Dynmap_Icon_Free: sign
+Dynmap_Icon_Taken: basket
+Dynmap_Show_On_Region_Loc: true
+Show_bid: true
+Show_let: true
+Show_rent: true
+Show_sell: true

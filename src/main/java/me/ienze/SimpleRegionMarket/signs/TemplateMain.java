@@ -1,5 +1,7 @@
 package me.ienze.SimpleRegionMarket.signs;
 
+import com.sk89q.worldguard.domains.DefaultDomain;
+import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,7 +10,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
-
+import me.ienze.SimpleRegionMarket.SimpleRegionMarket;
+import me.ienze.SimpleRegionMarket.TokenManager;
+import me.ienze.SimpleRegionMarket.Utils;
+import me.ienze.SimpleRegionMarket.handlers.LangHandler;
+import me.ienze.SimpleRegionMarket.regionTasks.TerrainRegeneratorThread;
+import me.ienze.SimpleRegionMarket.regions.RegionSaverData;
+import me.ienze.SimpleRegionMarket.regions.SimpleRegionData;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -17,19 +25,9 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
-import com.sk89q.worldguard.domains.DefaultDomain;
-import com.sk89q.worldguard.protection.regions.ProtectedRegion;
-import me.ienze.SimpleRegionMarket.SimpleRegionMarket;
-import me.ienze.SimpleRegionMarket.TokenManager;
-import me.ienze.SimpleRegionMarket.Utils;
-import me.ienze.SimpleRegionMarket.handlers.LangHandler;
-import me.ienze.SimpleRegionMarket.regionTasks.TerrainRegeneratorThread;
-import me.ienze.SimpleRegionMarket.regions.RegionSaverData;
-import me.ienze.SimpleRegionMarket.regions.SimpleRegionData;
-
 /**
  * @author theZorro266
- * 
+ *
  */
 public abstract class TemplateMain {
 	public String id = null;
@@ -247,7 +245,7 @@ public abstract class TemplateMain {
 		protectedRegion.getOwners().addPlayer(SimpleRegionMarket.wgManager.wrapPlayer(newOwner));
 
 		checkTakeActions(protectedRegion, world);
-		
+
 		if (Utils.getOptionBoolean(this, "removesigns")) {
 			for (final Location sign : Utils.getSignLocations(this, world, region)) {
 				sign.getBlock().setType(Material.AIR);
@@ -262,13 +260,13 @@ public abstract class TemplateMain {
 		final ArrayList<String> list = new ArrayList<String>();
 		list.add(region);
 		LangHandler.NormalOut(newOwner, "PLAYER.REGION.BOUGHT", list);
-		
+
 		//teleport to it
 		if(SimpleRegionMarket.configurationHandler.getBoolean("Teleport_To_Region")) {
 			Utils.teleportToRegion(world, region, newOwner, false);
 		}
 		tokenManager.updateSigns(this, world, region);
-		
+
 		if(SimpleRegionMarket.configurationHandler.getString("Auto_Removing_Regions").contains(this.id)) {
 			Utils.setEntry(this, world, region, "hidden", true);
 		}
@@ -280,18 +278,18 @@ public abstract class TemplateMain {
 		// Clear Members and Owners
 		protectedRegion.setMembers(new DefaultDomain());
 		protectedRegion.setOwners(new DefaultDomain());
-		
+
 		checkUntakeActions(protectedRegion, world);
 
 		Utils.setEntry(this, world, region, "taken", false);
 		Utils.removeEntry(this, world, region, "owner");
 		Utils.setEntry(this, world, region, "hidden", false);
-		
+
 		List<String> list = Arrays.asList(SimpleRegionMarket.configurationHandler.getString("Remove_LWC_On_Expire").split(","));
 		if(list.contains(this.id)) {
 			SimpleRegionMarket.lwcManager.removeRegionProtection(protectedRegion, world);
 		}
-		
+
 		tokenManager.updateSigns(this, world, region);
 	}
 
@@ -356,7 +354,7 @@ public abstract class TemplateMain {
 		tokenManager.updateSigns(this, world, region);
 		return true;
 	}
-	
+
 	public void checkTakeActions(ProtectedRegion protectedRegion, String world) {
 
 		List<String> list = Arrays.asList(SimpleRegionMarket.configurationHandler.getString("Rollback_On_Expire").split(","));
@@ -372,12 +370,12 @@ public abstract class TemplateMain {
 		if(list.contains(this.id)) {
 			SimpleRegionMarket.lwcManager.removeRegionProtection(protectedRegion, world);
 		}
-		
+
 		list = Arrays.asList(SimpleRegionMarket.configurationHandler.getString("Rollback_On_Expire").split(","));
 		if(list.contains(this.id)) {
 			SimpleRegionMarket.regionSaver.load(new SimpleRegionData(world, protectedRegion.getId()));
 		}
-		
+
 		if(SimpleRegionMarket.configurationHandler.getString("Regenerate_On_Expire") != null) {
 			list = Arrays.asList(SimpleRegionMarket.configurationHandler.getString("Regenerate_On_Expire").split(","));
 			if(list.contains(this.id)) {
@@ -386,7 +384,7 @@ public abstract class TemplateMain {
 			}
 		}
 	}
-	
+
 	public void schedule(String world, String region) {
 		// nothing
 	}

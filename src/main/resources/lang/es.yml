@@ -1,0 +1,94 @@
+#Traduction by NaNo97
+
+version: 3.2.1
+MAIN:
+  WARN:
+    NO_ECO_API: No se a encontrado Vault, pasando a la vercion libre de economia
+    VAULT_NO_ECO: Usted no tiene un sistema de economía en funcionamiento, ademas de Vault
+    REGISTER_NO_ECO: Usted no tiene un sistema de economía además de no registrarse funcionamiento
+  ERROR:
+    NO_WORLDGUARD: WorldGuard no se ha encontrado
+CHECK:
+  WARN:
+    NO_WORLD: Mundo $0 no se ha cargado!
+    NO_REGION: WorldGuard region $0 no se ha encontrado!
+TEMPLATES:
+  NORM:
+    NO_TEMPLATES: No se encontraron plantillas - Creacion estandar de plantillas
+  WARN:
+    TYPE_NOT_KOWN: No sé el tipo de plantilla $0
+  ERROR:
+    NO_STANDARD_TEMPLATES: No se pudo crear plantillas estandar
+COMMON:
+  CONSOLE_NOWORLD: Hay que darle al mundo en la consola
+  NO_REGION: Region $0 no se ha encontrado en el mundo $1.
+  NO_TELEPORT_REGION_TYPE: $0 isn't supported teleport to region type.
+CMD:
+  RELOAD:
+    SUCCESS: Configuracion recargada.
+  LIST:
+    NO_ARG: 'Utilice: /srm list [page] [token]- Para mostrar la lista de regiones.'
+    HEADER: ' --- Regiones (page $0): --- '
+  ADD_MEMBER:
+    NO_ARG: 'Utilice: /srm addMember <jugador> <region> <mundo> - Para anadir un miembro a su region.'
+    SUCCESS: Miembro anadido.
+    SUCCESS_MEMBER: 'Se le ha anadido por $0 a la region $1'
+  REM_MEMBER:
+    NO_ARG: 'Utilice: /srm removeMember <jugador> <region> <mundo> - Para eliminar un miembro de su region.'
+    SUCCESS: Miembro eliminado.
+    SUCCESS_MEMBER: 'Usted ha sido eliminado por $0 de la region $1'
+  UNTAKE:
+    NO_ARG: 'Utilice: /srm clear <region> [world]- Para eliminar los propietarios y miembros de la region'
+    SUCCESS: La region $0 en el mundo de $ 1 ha sido liberada.
+  REMOVE:
+    NO_ARG: 'Utilice: /srm remove <region> [world] - Para eliminar la region fuera del sistema'
+    SUCCESS: La region $0 en el mundo $1 se ha eliminado.
+  STATISTICS:
+    HEADER: ' --- Statistics: --- '
+    NOT_ENABLED: Las estadísticas no han sido habilitadas.
+  MONEYS:
+    HEADER: ' --- Dinero (let): --- ' 
+  TP:
+    NO_FREE_REGION: No se puede encontrar una region libre.
+    NOT_OWN: No puede hacer propia la region con el nombre de $0.
+PLAYER:
+  ERROR:
+    ECO_PROBLEM: Hubo un problema con la transferencia del dinero.
+    NO_MONEY: Usted no tiene suficiente dinero.
+    NO_PRICE: Precio no encontrado.
+    NO_RENTTIME: No se encontro el tiempo de alquiler.
+    NO_PLAYER: Jugador $0 no encontrado.
+    NO_REGION: No hay ninguna region con este nombre.
+    NOT_OWNER: Usted no es dueño de esta region.
+    PRICE_LIMIT: El precio no es entre $0 y $1.
+    RENTTIME_LIMIT: El tiempo de alquiler no es entre $0 y $1.
+    RERENT_TOO_LONG: No es posible ampliar su region.
+    NEED_ONE_SIGN: Esta plantilla necesita por lo menos un signo cuando se toma.
+    OTHER_TOKEN: No se puede crear una señal de esta ficha, cuando hay signos de otras fichas.
+    FAST_CLICKS: Usted esta haciendo clic demasiado rapido!
+  NO_PERMISSIONS: Usted no tiene permiso para hacerlo.
+  REGION:
+    YOURS: Es su region.
+    BOUGHT: Usted compro con exito la region $0.
+    RENT: Usted alquilo con exito la region $0.
+    JUST_TAKEN_BY: La region $0 fue tomada solo por $1.
+    TAKEN_BY: Esta region es propiedad de $0.
+    DELETED: La region se elimino correctamente.
+    DELETED_SIGN: Deleted that sign from the region.
+    ADDED_SIGN:  Ha agregado $0-Sign a esta region.
+    EXPIRED: Su region $0 expiro.
+    WARN_EXPIRE: Su region $0 expirara en $1 minutos.
+    AUTO_EXPANDED: Su region $0 se a ampliado automaticamente.
+    ADDED_RENTTIME: Usted ampliado con exito su tiempo.
+    BID_END_NO_WINER: Fin de la oferta. No gano nadie.
+    BID_END: Fin de la oferta ($0), el ganador es $1.
+    BID_ADD: Ha añadido $0 a la oferta ($1)
+  LIMITS:
+    GLOBAL: Usted ha llegado al limite de la region global.
+    GROUP: Usted ha llegado al limite de la region del grupo.
+    TOKEN: Usted ha llegado al límite de región que se muestra..
+    GLOBAL_WORLD: Usted ha llegado al limite de la region de este mundo.
+    TOKEN_WORLD: Usted ha llegado al limite de la región que se muestra en este mundo.
+    GROUP_WORLD: Usted ha llegado al limite de la region del grupo en este mundo.
+    GROUP_TOKEN: You have reached the group region limit in this token.
+    ONLY_ONE_BID: Puede hacer solo en una oferta a la vez.
