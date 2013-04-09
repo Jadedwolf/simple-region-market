@@ -4,7 +4,11 @@
     <artifactId>SimpleReionMarket</artifactId>
     <version>3.3.6</version>
     <name>SimpleReionMarket</name>
+    <description>WorldGuard Region Market Plugin</description>
+    <url>http://dev.bukkit.org/server-mods/simple-region-market</url>
     <properties>
+        <state>dev</state>
+        <majorversion>3</majorversion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <minecraft.version>1.5.1</minecraft.version>
         <minecraft_version>1_5_R2</minecraft_version>
@@ -13,6 +17,10 @@
         <repository>
             <id>bukkit-repo</id>
             <url>http://repo.bukkit.org/content/groups/public</url>
+        </repository>
+        <repository>
+            <id>craftbukkit-repo</id>
+            <url>https://github.com/Bukkit/CraftBukkit</url>
         </repository>
         <repository>
             <id>sk89q-mvn2</id>
@@ -108,4 +116,10 @@
             <type>jar</type>
         </dependency>
     </dependencies>
+    <scm>
+        <url>https://github.com/Jadedwolf/simple-region-market</url>
+        <tag>HEAD</tag>
+        <connection>scm:git:git://github.com/Jadedwolf/simple-region-market.git</connection>
+        <developerConnection>scm:git:git@github.com:Jadedwolf/simple-region-market.git</developerConnection>
+    </scm>
 </project>
