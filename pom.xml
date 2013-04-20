@@ -2,8 +2,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.ienze.SimpleRegionMarket</groupId>
     <artifactId>SimpleReionMarket</artifactId>
-    <version>3.3.6</version>
-    <name>SimpleReionMarket</name>
+    <version>3.3.6.2</version>
+    <name>SimpleRegionMarket</name>
     <description>WorldGuard Region Market Plugin</description>
     <url>http://dev.bukkit.org/server-mods/simple-region-market</url>
     <properties>
@@ -58,20 +58,12 @@
         </plugins>
     </build>
     <dependencies>
-        <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>bukkit</artifactId>
-            <version>1.5.1-R0.2-SNAPSHOT</version>
-            <type>jar</type>
-            <scope>compile</scope>
-        </dependency>
         <dependency> <!-- NMS blocks -->
             <groupId>org.bukkit</groupId>
             <artifactId>craftbukkit</artifactId>
             <version>1.5.1-R0.2-SNAPSHOT</version>
-            <scope>compile</scope>
-            <type>jar</type>
-            <optional>true</optional>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/craftbukkit-1.5.R0.2.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.bukkit</groupId>
@@ -83,8 +75,13 @@
         <dependency>
             <groupId>com.sk89q</groupId>
             <artifactId>worldguard</artifactId>
-            <version>5.6.4</version>
-            <type>jar</type>
+            <version>5.7.3</version>
+            <exclusions>
+            	<exclusion>
+            		<artifactId>truezip</artifactId>
+            		<groupId>de.schlichtherle</groupId>
+            	</exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.dynmap</groupId>
@@ -107,19 +104,24 @@
             <groupId>net.milkbowl.vault</groupId>
             <artifactId>Vault</artifactId>
             <version>1.2.16</version>
-            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>com.griefcraft</groupId>
             <artifactId>LWC</artifactId>
-            <version>4.3.1</version>
-            <type>jar</type>
+            <version>4.3.2-B3</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/LWC-4.3.2-B3.jar</systemPath>
+        </dependency>
+        <dependency>
+        	<groupId>de.schlichtherle.truezip</groupId>
+        	<artifactId>truezip-archetype-file</artifactId>
+        	<version>7.0</version>
         </dependency>
     </dependencies>
     <scm>
-        <url>https://github.com/Jadedwolf/simple-region-market</url>
+        <url>https://github.com/andoitz/simple-region-market</url>
         <tag>HEAD</tag>
-        <connection>scm:git:git://github.com/Jadedwolf/simple-region-market.git</connection>
-        <developerConnection>scm:git:git@github.com:Jadedwolf/simple-region-market.git</developerConnection>
+        <connection>scm:git:git://github.com/andoitz/simple-region-market.git</connection>
+        <developerConnection>scm:git:git@github.com:andoitz/simple-region-market.git</developerConnection>
     </scm>
 </project>
