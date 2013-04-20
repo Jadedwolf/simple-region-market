@@ -2,8 +2,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.ienze.SimpleRegionMarket</groupId>
     <artifactId>SimpleReionMarket</artifactId>
-    <version>3.3.6</version>
-    <name>SimpleReionMarket</name>
+    <version>3.3.6.2</version>
+    <name>SimpleRegionMarket</name>
     <description>WorldGuard Region Market Plugin</description>
     <url>http://dev.bukkit.org/server-mods/simple-region-market</url>
     <properties>
@@ -77,7 +77,7 @@
             <artifactId>worldguard</artifactId>
             <version>5.7.3</version>
             <exclusions>
-                <exclusion>
+            	<exclusion>
             		<artifactId>truezip</artifactId>
             		<groupId>de.schlichtherle</groupId>
             	</exclusion>
@@ -119,9 +119,9 @@
         </dependency>
     </dependencies>
     <scm>
-        <url>https://github.com/Jadedwolf/simple-region-market</url>
+        <url>https://github.com/andoitz/simple-region-market</url>
         <tag>HEAD</tag>
-        <connection>scm:git:git://github.com/Jadedwolf/simple-region-market.git</connection>
-        <developerConnection>scm:git:git@github.com:Jadedwolf/simple-region-market.git</developerConnection>
+        <connection>scm:git:git://github.com/andoitz/simple-region-market.git</connection>
+        <developerConnection>scm:git:git@github.com:andoitz/simple-region-market.git</developerConnection>
     </scm>
 </project>
