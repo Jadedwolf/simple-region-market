@@ -16,6 +16,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -101,11 +102,26 @@ public class TokenManager {
 						loc.getBlock().setType(Material.SIGN_POST);
 						LangHandler.directOut(Level.INFO, "Can't find sign, creating new.");
 					} else {
-						final Sign sign = (Sign) loc.getBlock().getState();
-						for (int i = 0; i < Utils.SIGN_LINES; i++) {
-							sign.setLine(i, lines[i]);
+						Block bloque = (Block) loc.getBlock();
+						if (bloque.getType() == Material.WALL_SIGN || bloque.getType() == Material.SIGN_POST) {
+							//Sometimes crash cause sign is not in the place and cant put it
+							try{
+								Sign sign = (Sign) bloque.getState();
+								for (int i = 0; i < Utils.SIGN_LINES; i++) {
+									sign.setLine(i, lines[i]);
+								}
+								sign.update();
+							}
+							catch(Exception ex){
+								LangHandler.consoleOut("SRM Sign was Crashed, deleting sign for security -> "+bloque.toString(), Level.WARNING, null);
+								//Deleting crashed Sign
+								final ArrayList<Location> signLocations = Utils.getSignLocations(token, world, region);
+								Utils.removeEntry(token, world, region, "signs");
+								Utils.removeRegion(token, world, region);
+								Location signLocation = new Location(worldWorld,bloque.getX(),bloque.getY(),bloque.getZ());
+								signLocations.remove(signLocation);
+							}
 						}
-						sign.update();
 					}
 				}
 			}
