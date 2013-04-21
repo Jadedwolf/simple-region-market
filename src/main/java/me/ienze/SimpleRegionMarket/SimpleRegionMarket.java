@@ -39,8 +39,8 @@ public class SimpleRegionMarket extends JavaPlugin {
     // Private classes:
     private CommandHandler commandHandler;
     private DynMapMarkerManager dynMapMarkers;
-
-    public static String getPluginDir() {
+    
+	public static String getPluginDir() {
         return pluginDir;
     }
 
@@ -109,7 +109,6 @@ public class SimpleRegionMarket extends JavaPlugin {
         LangHandler.directOut(Level.INFO, "The check took " + ms + "ms");
 
         getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
-            @Override
             public void run() {
                 tokenManager.checkRegions();
                 SimpleRegionMarket.limitHandler.autoClear();

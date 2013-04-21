@@ -40,7 +40,6 @@ public class CommandHandler implements CommandExecutor {
 		this.tokenManager = tokenManager;
 	}
 
-	@Override
 	public boolean onCommand(CommandSender sender, Command command, String commandLabel, String[] args) {
 		Player player = null;
 		Boolean isConsole = false;
