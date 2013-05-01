@@ -1,5 +1,8 @@
 package me.ienze.SimpleRegionMarket;
 
+import com.sk89q.worldguard.protection.ApplicableRegionSet;
+import com.sk89q.worldguard.protection.managers.RegionManager;
+import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -10,7 +13,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
-
+import me.ienze.SimpleRegionMarket.handlers.LangHandler;
+import me.ienze.SimpleRegionMarket.signs.TemplateBid;
+import me.ienze.SimpleRegionMarket.signs.TemplateHotel;
+import me.ienze.SimpleRegionMarket.signs.TemplateLet;
+import me.ienze.SimpleRegionMarket.signs.TemplateMain;
+import me.ienze.SimpleRegionMarket.signs.TemplateSell;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -23,23 +31,12 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
-import com.sk89q.worldguard.protection.ApplicableRegionSet;
-import com.sk89q.worldguard.protection.managers.RegionManager;
-import com.sk89q.worldguard.protection.regions.ProtectedRegion;
-
-import me.ienze.SimpleRegionMarket.handlers.LangHandler;
-import me.ienze.SimpleRegionMarket.signs.TemplateBid;
-import me.ienze.SimpleRegionMarket.signs.TemplateHotel;
-import me.ienze.SimpleRegionMarket.signs.TemplateLet;
-import me.ienze.SimpleRegionMarket.signs.TemplateMain;
-import me.ienze.SimpleRegionMarket.signs.TemplateSell;
-
 public class TokenManager {
 	public final static String CONFIG_NAME = "templates.yml";
 	public final static File CONFIG_FILE = new File(SimpleRegionMarket.getPluginDir() + CONFIG_NAME);
 
 	public static ArrayList<TemplateMain> tokenList = new ArrayList<TemplateMain>();
-	
+
 	private String ListTemplate;
 
 	private final SimpleRegionMarket plugin;
@@ -50,7 +47,7 @@ public class TokenManager {
 
 	/**
 	 * Update signs from tokens
-	 * 
+	 *
 	 * @param agent
 	 *            the agent
 	 * @param event
@@ -132,7 +129,7 @@ public class TokenManager {
 		ListTemplate = SimpleRegionMarket.configurationHandler.getString("Regions_List_Template");
 		ArrayList<String> out = new ArrayList<String>();
 		int count = 0;
-		
+
 		final World worldWorld = Bukkit.getWorld(world);
 		if (worldWorld == null) {
 			LangHandler.directOut(Level.WARNING, "CHECK.WARN.NO_WORLD"+world);
@@ -143,27 +140,27 @@ public class TokenManager {
 					if (protectedRegion == null) {
 						LangHandler.consoleOut("CHECK.WARN.NO_REGION", Level.WARNING, null);
 					} else {
-							
+
 						if(data.containsKey("minprice")) {
 							if(Utils.getEntryDouble(token, world, region, "price") < Double.parseDouble(data.get("minprice")))
 								continue;
 						}
-						
+
 						if(data.containsKey("maxprice")) {
 							if(Utils.getEntryDouble(token, world, region, "price") > Double.parseDouble(data.get("maxprice")))
 								continue;
 						}
-						
+
 						if(data.containsKey("minrenttime")) {
 							if(Utils.getEntryLong(token, world, region, "renttime") < Utils.parseSignTime(data.get("minrenttime")))
 								continue;
 						}
-						
+
 						if(data.containsKey("maxrenttime")) {
 							if(Utils.getEntryLong(token, world, region, "renttime") > Utils.parseSignTime(data.get("maxrenttime")))
 								continue;
 						}
-						
+
 						if(data.containsKey("radius")) {
 							if(playerLocation != null) {
 								ProtectedRegion pr = Utils.getProtectedRegion(region, null, world);
@@ -175,7 +172,7 @@ public class TokenManager {
 								}
 							}
 						}
-						
+
 						if(data.containsKey("minradius")) {
 							if(playerLocation != null) {
 								ProtectedRegion pr = Utils.getProtectedRegion(region, null, world);
@@ -187,12 +184,12 @@ public class TokenManager {
 								}
 							}
 						}
-						
+
 						count++;
 						if(count > (page*limit)-limit && count < (page*limit)) {
 							out.add(getRegionInfoLine(world, region,token));
 						}
-						
+
 						if(count > (page*limit)) {
 							break;
 						}
@@ -203,13 +200,13 @@ public class TokenManager {
 		List<String> newList = Arrays.asList(out.toArray(new String[out.size()]));
 		return newList;
 	}
-	
+
 	private String getRegionInfoLine(String world, String region, TemplateMain token) {
 		String label = ListTemplate;
-		
+
 		Long rentTime = Utils.getEntryLong(token, world, region, "renttime");
 		Long expireTime = Utils.getEntryLong(token, world, region, "expiredate");
-		
+
 		String time = "";
 		if(rentTime != null && rentTime > 0) {
 			time = "/" + Utils.getSignTime(rentTime);
@@ -217,7 +214,7 @@ public class TokenManager {
 		if(expireTime != null && expireTime > 0) {
 			time = "/" + Utils.getSignTime(expireTime - System.currentTimeMillis());
 		}
-		
+
 		label = label.replace("&region&", region);
 		label = label.replace("&tokenType&", token.id);
 		label = label.replace("&price&", Utils.getEntryString(token, world, region, "price"));
@@ -225,7 +222,7 @@ public class TokenManager {
 
 		return label;
 	}
-	
+
 	public int[] checkRegions() {
 		final int[] count = new int[2];
 		final ArrayList<String> worldsHad = new ArrayList<String>();
@@ -263,7 +260,7 @@ public class TokenManager {
 								}
 								token.schedule(world, region);
 								updateSigns(token, world, region);
-								
+
 								//remove taken region (sell, bid)
 								if(SimpleRegionMarket.configurationHandler.getString("Auto_Removing_Regions").contains(Utils.getOptionString(token, "type"))) {
 									if(Utils.getEntryBoolean(token, world, region, "taken")) {
@@ -278,7 +275,7 @@ public class TokenManager {
 							}
 						}
 					} catch (ConcurrentModificationException e) {
-						
+
 					}
 				}
 				if (!worldsHad.contains(world)) {
@@ -290,7 +287,7 @@ public class TokenManager {
 	}
 
 	public void initTemplates() {
-	
+
 		//updating files templates to new version
 		FileConfiguration templatesFile = new YamlConfiguration();
 		try {
@@ -315,11 +312,11 @@ public class TokenManager {
 			return;
 		}
 		String templatesResourceVersion = templatesFile.getString("templates_version");
-		
+
 		if(templatesVersion == null || Utils.compareVersions(templatesResourceVersion, templatesVersion) == 1) {
 			plugin.saveResource(CONFIG_NAME, true);
 		}
-		
+
 		if (CONFIG_FILE.exists()) {
 			final YamlConfiguration configHandle = YamlConfiguration.loadConfiguration(CONFIG_FILE);
 			for (final String key : configHandle.getKeys(false)) {
@@ -352,11 +349,11 @@ public class TokenManager {
 					return true;
 				}
 			}
-			
+
 			if(player.getName().equals(Utils.getEntryString(token, world, protectedRegion.getId(), "owner"))) {
 				return true;
 			}
-			
+
 			if(SimpleRegionMarket.permManager.hadAdminPermissions(player)) {
 				return true;
 			}
@@ -402,7 +399,7 @@ public class TokenManager {
 				}
 			}
 		}
-		
+
 		if(input.get("world") == null) {
 			if(SimpleRegionMarket.configurationHandler.getBoolean("Use_Other_World_Regions")) {
 				for(World w : Bukkit.getWorlds()) {
@@ -421,7 +418,7 @@ public class TokenManager {
 		} else {
 			world = input.get("world");
 		}
-		
+
 		final ProtectedRegion protectedRegion = Utils.getProtectedRegion(input.get("region").toString(), signLocation, world);
 
 		if (protectedRegion == null) {
@@ -433,7 +430,7 @@ public class TokenManager {
 
 		//remove Auto_Removing_Regions
 		for (final TemplateMain otherToken : TokenManager.tokenList) {
-			
+
 			Boolean hidden = Utils.getEntryBoolean(otherToken, world, region, "hidden");
 			if(hidden == null) {
 				hidden = false;
@@ -447,7 +444,7 @@ public class TokenManager {
 				}
 			}
 		}
-		
+
 		for (final TemplateMain otherToken : TokenManager.tokenList) {
 			if (!otherToken.equals(token) && Utils.getEntry(otherToken, world, region, "taken") != null) {
 				if (!Utils.getSignLocations(otherToken, world, region).isEmpty() || Utils.getEntryBoolean(otherToken, world, region, "taken")) {
@@ -456,7 +453,7 @@ public class TokenManager {
 				}
 			}
 		}
-		
+
 		// Permissions
 		if (!SimpleRegionMarket.permManager.canPlayerCreateSign(player, lines[0].substring(1, lines[0].length()-1).toLowerCase())) {
 			LangHandler.ErrorOut(player, "PLAYER.NO_PERMISSIONS", null);
@@ -467,7 +464,7 @@ public class TokenManager {
 			LangHandler.ErrorOut(player, "PLAYER.ERROR.NOT_OWNER", null);
 			return false;
 		}
-		
+
 		return token.signCreated(player, world, protectedRegion, signLocation, input, lines);
 	}
 
