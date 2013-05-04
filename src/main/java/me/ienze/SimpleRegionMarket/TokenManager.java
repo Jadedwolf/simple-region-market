@@ -460,7 +460,7 @@ public class TokenManager {
 			return false;
 		}
 
-		if(!playerIsOwner(player, token, region, protectedRegion)) {
+		if(!playerIsOwner(player, token, region, protectedRegion) || !SimpleRegionMarket.permManager.hadAdminPermissions(player)) {
 			LangHandler.ErrorOut(player, "PLAYER.ERROR.NOT_OWNER", null);
 			return false;
 		}

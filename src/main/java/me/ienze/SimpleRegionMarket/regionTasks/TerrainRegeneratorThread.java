@@ -5,11 +5,11 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.HashMap;
 import java.util.Random;
-import net.minecraft.server.v1_5_R2.BiomeBase;
-import net.minecraft.server.v1_5_R2.ChunkProviderGenerate;
-import net.minecraft.server.v1_5_R2.WorldType;
+import net.minecraft.server.v1_5_R3.BiomeBase;
+import net.minecraft.server.v1_5_R3.ChunkProviderGenerate;
+import net.minecraft.server.v1_5_R3.WorldType;
 import org.bukkit.World;
-import org.bukkit.craftbukkit.v1_5_R2.CraftWorld;
+import org.bukkit.craftbukkit.v1_5_R3.CraftWorld;
 import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.generator.ChunkGenerator.BiomeGrid;
 
@@ -51,7 +51,7 @@ public class TerrainRegeneratorThread extends Thread {
 					chunks.put(x+","+z, chunk);
 				} else {
 					//default generator
-					net.minecraft.server.v1_5_R2.World mcworld = ((CraftWorld)world).getHandle();
+					net.minecraft.server.v1_5_R3.World mcworld = ((CraftWorld)world).getHandle();
 
 					byte[] bytes = new byte[65536];
 					BiomeBase[] biomes = new BiomeBase[256];
