@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.ienze.SimpleRegionMarket</groupId>
     <artifactId>SimpleReionMarket</artifactId>
-    <version>3.3.6</version>
+    <version>3.3.7</version>
     <name>SimpleRegionMarket</name>
     <description>WorldGuard Region Market Plugin</description>
     <url>http://dev.bukkit.org/server-mods/simple-region-market</url>
@@ -10,8 +10,8 @@
         <state>dev</state>
         <majorversion>3</majorversion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <minecraft.version>1.5.1</minecraft.version>
-        <minecraft_version>1_5_R2</minecraft_version>
+        <minecraft.version>1.5.2</minecraft.version>
+        <minecraft_version>1_5_R3</minecraft_version>
     </properties>
     <repositories>
         <repository>
@@ -61,7 +61,7 @@
         <dependency> <!-- NMS blocks -->
             <groupId>org.bukkit</groupId>
             <artifactId>craftbukkit</artifactId>
-            <version>1.5.1-R0.2-SNAPSHOT</version>
+            <version>1.5.2-R0.2-SNAPSHOT</version>
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
@@ -75,12 +75,12 @@
         <dependency>
             <groupId>com.sk89q</groupId>
             <artifactId>worldguard</artifactId>
-            <version>5.7.3</version>
+            <version>5.7.4-SNAPSHOT</version>
             <exclusions>
-            	<exclusion>
-            		<artifactId>truezip</artifactId>
-            		<groupId>de.schlichtherle</groupId>
-            	</exclusion>
+                <exclusion>
+                    <artifactId>truezip</artifactId>
+                    <groupId>de.schlichtherle</groupId>
+                </exclusion>
             </exclusions>
             <type>jar</type>
         </dependency>
@@ -92,7 +92,7 @@
         <dependency>
             <groupId>com.nijikokun.bukkit</groupId>
             <artifactId>Permissions</artifactId>
-            <version>2.7.4</version>
+            <version>3.1.6</version>
             <type>jar</type>
         </dependency>
         <dependency>
@@ -114,9 +114,9 @@
             <systemPath>${basedir}/lib/LWC-4.3.2-B3.jar</systemPath>
         </dependency>
         <dependency>
-        	<groupId>de.schlichtherle.truezip</groupId>
-        	<artifactId>truezip-archetype-file</artifactId>
-        	<version>7.0</version>
+            <groupId>de.schlichtherle.truezip</groupId>
+            <artifactId>truezip-archetype-file</artifactId>
+            <version>7.0</version>
         </dependency>
     </dependencies>
     <scm>
