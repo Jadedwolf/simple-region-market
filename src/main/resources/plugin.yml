@@ -1,10 +1,10 @@
 name: SimpleRegionMarket
-version: 3.4
+version: 3.5
 authors: [Ienze, theZorro266]
 main: me.ienze.SimpleRegionMarket.SimpleRegionMarket
 load: POSTWORLD
 depend: ['WorldGuard', 'Vault']
-softdepend: ['Vault', 'dynmap', 'LWC']
+softdepend: ['Vault', 'BOSEconomy', 'dynmap', 'LWC']
 
 commands:
   regionmarket:

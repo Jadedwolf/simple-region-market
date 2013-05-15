@@ -39,8 +39,8 @@ public class SimpleRegionMarket extends JavaPlugin {
     // Private classes:
     private CommandHandler commandHandler;
     private DynMapMarkerManager dynMapMarkers;
-    
-	public static String getPluginDir() {
+
+    public static String getPluginDir() {
         return pluginDir;
     }
 
@@ -52,7 +52,8 @@ public class SimpleRegionMarket extends JavaPlugin {
     }
 
     @Override
-    public void onLoad() {
+    public void onEnable() {
+
         SimpleRegionMarket.pluginDir = getDataFolder() + File.separator;
 
         configurationHandler = new ConfigHandler(this);
@@ -70,10 +71,6 @@ public class SimpleRegionMarket extends JavaPlugin {
         permManager = new PermissionsManager();
 
         econManager = new EconomyManager(this);
-    }
-
-    @Override
-    public void onEnable() {
 
         try {
             BukkitMetricsLite metrics = new BukkitMetricsLite(this);
@@ -82,12 +79,14 @@ public class SimpleRegionMarket extends JavaPlugin {
             // Failed to submit the stats :-(
         }
 
-        lwcManager.load();
-
-        econManager.setupEconomy();
+        Utils.checkOldFilesToUpdate();
 
         tokenManager = new TokenManager(this);
         tokenManager.initTemplates();
+
+        lwcManager.load();
+
+        econManager.setupEconomy();
 
         statisticManager = new StatisticManager();
 
@@ -97,8 +96,6 @@ public class SimpleRegionMarket extends JavaPlugin {
 
         commandHandler = new CommandHandler(this, tokenManager);
         getCommand("regionmarket").setExecutor(commandHandler);
-
-        Utils.checkOldFilesToUpdate();
 
         // Check all signs and output stats
         long ms = System.currentTimeMillis();
