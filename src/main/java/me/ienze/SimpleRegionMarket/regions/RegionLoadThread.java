@@ -33,8 +33,10 @@ public class RegionLoadThread extends Thread {
             }
             zip.close();
         } catch (FileNotFoundException e) {
+            System.out.println("[SRM] You're using old region files, please delete the SimpleRegionMarket/region folder!");
             e.printStackTrace();
         } catch (IOException e) {
+            System.out.println("[SRM] Unable to read/write to the SimpleRegionMarket/region location!");
             e.printStackTrace();
         }
 
