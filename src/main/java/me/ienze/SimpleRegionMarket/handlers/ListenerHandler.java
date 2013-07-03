@@ -163,7 +163,7 @@ public class ListenerHandler implements Listener {
 
     @EventHandler
     public void onPluginEnable(final PluginEnableEvent event) {
-        if (event.getPlugin().getName() == "dynmap") {
+        if ("dynmap".equals(event.getPlugin().getName())) {
             if (SimpleRegionMarket.configurationHandler.getConfig().getBoolean("Enable_dynmap", true)) {
                 plugin.activateDynMapMarkers();
             }

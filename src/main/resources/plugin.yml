@@ -1,5 +1,5 @@
 name: SimpleRegionMarket
-version: 3.5
+version: 3.6
 authors: [Ienze, theZorro266]
 main: me.ienze.SimpleRegionMarket.SimpleRegionMarket
 load: POSTWORLD
